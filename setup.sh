@@ -2,8 +2,7 @@
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update -y
 
-sudo apt-get install software-properties-common python-software-properties i3 neovim git feh rofi scrot imagemagick i3lock dbus python-dev python-pip python3-dev python3-pip
-sudo apt-get install cmake make g++ xorg-dev libqt4-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev libssl-dev libx11-dev build-essential cmake -y
+sudo apt-get install software-properties-common python-software-properties i3 i3blocks neovim git feh rofi scrot imagemagick i3lock dbus python-dev python-pip python3-dev python3-pip cmake make g++ xorg-dev libqt4-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev libssl-dev libx11-dev build-essential cmake -y
 
 pip install setuptools
 pip install --upgrade neovim
