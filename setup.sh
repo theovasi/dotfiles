@@ -21,12 +21,9 @@ cp -rf i3 ~/.config/
 cp /fonts/* ~/.fonts
 cp .Xresources ~/ 
 cp -rf nvim/ ~/.config/
-cp i3lock.sh ~/.scripts
+cp scripts/i3lock.sh ~/.scripts
 
 cd ~/.config/nvim/bundle/
 git clone https://github.com/Valloric/YouCompleteMe
 cd YouCompleteMe/
 ./install.py
-
-
-
