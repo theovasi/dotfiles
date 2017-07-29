@@ -16,6 +16,7 @@ cp fonts/* ~/.fonts
 cp .Xresources ~/ 
 cp -rf nvim/ ~/.config/
 cp scripts/i3lock.sh ~/.scripts
+cp .bashrc ~/
 
 cd ~/.config/nvim/bundle/
 git clone https://github.com/Valloric/YouCompleteMe
