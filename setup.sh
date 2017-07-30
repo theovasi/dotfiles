@@ -3,7 +3,7 @@ sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update -y
 
 sudo apt-get install software-properties-common python-software-properties i3 i3blocks neovim git feh rofi scrot imagemagick i3lock dbus python-dev python-pip python3-dev python3-pip cmake make g++ xorg-dev libqt4-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev libssl-dev libx11-dev build-essential cmake zsh -y
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" -y
 
 pip install setuptools
 pip install --upgrade neovim
@@ -19,7 +19,6 @@ cp -rf nvim/ ~/.config/
 cp scripts/i3lock.sh ~/.scripts
 cp .bashrc ~/
 
-gconftool-2 --load gnome-terminal-conf.xml
 cd ~/.config/nvim/bundle/
 git clone https://github.com/Valloric/YouCompleteMe
 cd YouCompleteMe/
