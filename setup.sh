@@ -18,6 +18,8 @@ cp .Xresources ~/
 cp -rf nvim/ ~/.config/
 cp scripts/i3lock.sh ~/.scripts
 cp .bashrc ~/
+cp .zshrc ~/
+cp .oh-my-zsh ~/
 
 gconftool-2 --load gnome-terminal-conf.xml
 cd ~/.config/nvim/bundle/
