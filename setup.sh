@@ -12,14 +12,10 @@ pip3 install --upgrade neovim
 
 mkdir ~/.fonts ~/.scripts
 
-cp -rf i3 ~/.config/
+cp -rf i3 nvim compton.conf ~/.config/
 cp fonts/* ~/.fonts
-cp .Xresources ~/ 
-cp -rf nvim/ ~/.config/
 cp scripts/i3lock.sh ~/.scripts
-cp .bashrc ~/
-cp .zshrc ~/
-cp .oh-my-zsh ~/
+cp .bashrc .zshrc .oh-my-zsh .Xresources ~/ 
 
 cd ~/.config/nvim/bundle/
 git clone https://github.com/Valloric/YouCompleteMe
