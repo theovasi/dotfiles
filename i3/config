@@ -95,7 +95,7 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-set $workspace1 "1: &#xf268;"
+set $workspace1 "1: &#xf269;"
 set $workspace2 "2: &#xf120;"
 set $workspace9 "9: &#xf0e0;"
 set $workspace10 "10: &#xf1bc;"
@@ -200,5 +200,13 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle
 
+for_window [class="Firefox"] move container to workspace $workspace1
+for_window [class="Nylas"] move container to workspace $workspace9
+for_window [class="Spotify"] move container to workspace $workspace10
+
 exec_always feh --bg-scale /home/theovasi/Pictures/wallpaper.jpg
 exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec --no-startup-id firefox
+exec --no-startup-id spotify
+exec --no-startup-id nylas-mail
+exec --no-startup-id caffeine-indicator
