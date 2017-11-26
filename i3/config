@@ -201,12 +201,12 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle
 
 for_window [class="Firefox"] move container to workspace $workspace1
-for_window [class="Nylas"] move container to workspace $workspace9
+for_window [class="Thunderbird"] move container to workspace $workspace9
 for_window [class="Spotify"] move container to workspace $workspace10
 
 exec_always feh --bg-scale /home/theovasi/Pictures/wallpaper.jpg
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id firefox
 exec --no-startup-id spotify
-exec --no-startup-id nylas-mail
+exec --no-startup-id thunderbird
 exec --no-startup-id caffeine-indicator

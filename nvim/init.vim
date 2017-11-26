@@ -1,3 +1,4 @@
+
 " NeoBundle Scripts-----------------------------
 if has('vim_starting')
   set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
@@ -15,6 +16,9 @@ if !filereadable(neobundle_readme)
 endif
 
 call neobundle#begin(expand('$HOME/.config/nvim/bundle'))  
+
+" Let NeoBundle manage NeoBundle
+" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 """ Colorscheme Approximation """
@@ -38,8 +42,8 @@ let g:CSApprox_hook_post = [
             \ 'highlight clear LineNr'
             \]
 
-"Python lint
-NeoBundle 'w0rp/ale'
+
+
 " SimplyFold
 NeoBundle 'tmhedberg/SimpylFold'
 " NerdTree
@@ -56,31 +60,32 @@ NeoBundle 'vim-airline/vim-airline-themes'
 let g:airline_theme='powerlineish'
 
 " Code completion
-NeoBundle 'Valloric/YouCompleteMe', {  
-     \ 'build'      : {
-        \ 'mac'     : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-        \ 'unix'    : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-        \ 'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-        \ 'cygwin'  : './install.sh --clang-completer --system-libclang --omnisharp-completer'
-        \ }
-     \ }
+NeoBundle 'zchee/deoplete-jedi'
+NeoBundle 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
 
-" Syntax highlighting
-NeoBundle 'python-mode/python-mode'
+" Lint
+NeoBundle 'w0rp/ale'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 1
+let g:ale_fixers = {
+\   'python': ['autopep8'],
+\}
+let g:ale_fix_on_save = 1
 
-call neobundle#end()  
+call neobundle#end()
+
+" Required:
 filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
-NeoBundleCheck  
-"End NeoBundle Scripts-------------------------
+NeoBundleCheck
+
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
-let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Configure appearence
 set t_Co=256
@@ -91,7 +96,7 @@ hi NonText ctermbg=NONE
 hi LineNr ctermbg=NONE
 
 " Configure NerdTree
-map <F3> :NERDTreeToggle<CR>
+nnoremap <LocalLeader>t :NERDTreeToggle<CR>
 map <Tab> :tabn<CR>
 
 let NERDTreeMapActivateNode='<l>'
@@ -108,3 +113,10 @@ autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 
 " Auto import sorting
 autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
