@@ -63,6 +63,8 @@ let g:airline_theme='powerlineish'
 NeoBundle 'zchee/deoplete-jedi'
 NeoBundle 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " Lint
 NeoBundle 'w0rp/ale'
