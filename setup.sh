@@ -19,3 +19,4 @@ mkdir ~/.fonts ~/.scripts
 cp fonts/* ~/.fonts
 cp scripts/i3lock.sh ~/.scripts
 cp .zshrc .Xresources ~/ 
+xrdb ~/.Xresources
