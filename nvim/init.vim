@@ -29,6 +29,17 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Lint
 Plug 'w0rp/ale'
 
+" JS syntax highlighting
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+" Auto expand HTML tags
+Plug 'mattn/emmet-vim'
+
+" Run SHELL commands asynchronously
+Plug 'skywind3000/asyncrun.vim'
+
+
 " Initialize plugin system
 call plug#end()
 
@@ -38,6 +49,7 @@ let g:airline_theme='dracula'
 " Required:
 filetype indent plugin on
 set tabstop=4
+autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
 set shiftwidth=4
 set expandtab
 set noswapfile
@@ -52,6 +64,7 @@ color dracula
 set number
 set termguicolors
 set cursorline
+set guifont=System\ San\ Fransisco\ Display:h10
 
 " Configure NerdTree
 nnoremap <LocalLeader>t :NERDTreeToggle<CR>
@@ -81,6 +94,24 @@ highlight ALEErrorSign guibg=#ff5555 guifg=#ff5555
 highlight ALEWarningSign guibg=#f1fa8c guifg=#f1fa8c
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" Emmet configuration
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
+
+" Autoformat JS code on save.
+autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
