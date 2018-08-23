@@ -2,7 +2,17 @@
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: argb:e0333333, argb:95ffffff, argb:0bdbdbd
-rofi.color-normal: argb:0333333, #ffffff, argb:0eee8d5, argb:b1eb6536, #ffffff
-rofi.color-active: argb:0fdf6e3, #57d226, argb:0eee8d5, argb:0268bd2, #ffffff
-rofi.color-urgent: argb:0fdf6e3, #dc322f, argb:0eee8d5, argb:0dc322f, #ffffff
+rofi.color-window: #282a36, #282a36, #6272a4
+rofi.color-normal: #282a36, #ffffff, #282a36, #6272a4, #ffffff
+rofi.color-active: #282a36, #6272a4, #282a36, #6272a4, #205171
+rofi.color-urgent: #282a36, #ff5555, #282a36, #6272a4, #ff5555
+
+rofi.location: 5
+rofi.width: 10
+rofi.lines: 5
+rofi.columns: 1
+rofi.bw: 0
+rofi.eh: 1
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.font: System San Francisco Display 11
