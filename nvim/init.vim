@@ -5,7 +5,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Plug 'chriskempson/base16-vim'
-Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " Devicons
 Plug 'ryanoasis/vim-devicons'
 " SimplyFold
@@ -62,7 +62,6 @@ syntax on
 " colorscheme base16-default-dark
 color dracula
 set number
-set termguicolors
 set cursorline
 set guifont=System\ San\ Fransisco\ Display:h10
 
@@ -115,3 +114,9 @@ map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
 map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
