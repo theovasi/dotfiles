@@ -14,8 +14,7 @@ ZSH_THEME="robbyrussell"
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" ) 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -93,9 +92,10 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias vim="nvim"
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim=nvim
+alias wget='wget --no-check-certificate'
 
 # Configure base16 themes
 # Base16 Shell
@@ -103,4 +103,4 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
-base16_dracula
+base16_tomorrow-eighties

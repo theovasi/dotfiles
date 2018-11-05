@@ -1,4 +1,3 @@
-
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -25,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Code completion
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Lint
 Plug 'w0rp/ale'
@@ -36,15 +36,20 @@ Plug 'mxw/vim-jsx'
 " Auto expand HTML tags
 Plug 'mattn/emmet-vim'
 
+" Multiple selections
+Plug 'terryma/vim-multiple-cursors'
+
 " Run SHELL commands asynchronously
 Plug 'skywind3000/asyncrun.vim'
 
+" Auto pairs
+Plug 'jiangmiao/auto-pairs'
 
 " Initialize plugin system
 call plug#end()
 
 " Confiure airline
-let g:airline_theme='dracula'
+let g:airline_theme='tomorrow'
 
 " Required:
 filetype indent plugin on
@@ -60,15 +65,17 @@ map <Tab> :tabn<CR>
 set t_Co=256
 syntax on
 " colorscheme base16-default-dark
-color dracula
+color Tomorrow-Night-Eighties
 set number
 set cursorline
-set guifont=System\ San\ Fransisco\ Display:h10
 
 " Configure NerdTree
-nnoremap <LocalLeader>t :NERDTreeToggle<CR>
-
+nnoremap <LocalLeader>f :NERDTreeToggle<CR>
+let NERDTreeMapOpenInTab='t'
+let NERDTreeQuitOnOpen=1
 let NERDTreeMapActivateNode='<l>'
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " Configure NerdCommenter
 " Add spaces after comment delimiters by default
@@ -80,7 +87,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " Configure deoplete
 let g:deoplete#enable_at_startup = 1
 " deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Configure ALE
  let g:ale_lint_on_enter = 0
@@ -88,6 +95,11 @@ let g:ale_lint_on_text_changed = 1
  let g:ale_fixers = {
  \   'python': ['autopep8'],
  \}
+ let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'jsx': ['stylelint', 'eslint']
+\}
+
 let g:ale_fix_on_save = 1
 highlight ALEErrorSign guibg=#ff5555 guifg=#ff5555
 highlight ALEWarningSign guibg=#f1fa8c guifg=#f1fa8c
