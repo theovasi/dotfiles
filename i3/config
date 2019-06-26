@@ -7,11 +7,11 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: Hack 10
+font pango: System San Fransisco Display 9
 
 # This font is widely installed, provides lots of unicode glyphs, riht-to-left
 # text rendering and scalability on retina/hidpi displays (thanks topango).
@@ -31,7 +31,7 @@ floating_modifier $mod
 bindsym $mod+Shift+s exec sh ~/.scripts/i3lock.sh 
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec "urxvt -e /bin/zsh" 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -179,7 +179,8 @@ new_window pixel 0
 # finds out, if available)
 bar {
         position top
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	font pango: System San Fransisco Display 9
+        status_command i3status
         # tray_output primary
         colors {
           background $bg-color
@@ -218,8 +219,8 @@ for_window [class="Brave"] move container to workspace $workspace1
 for_window [class="Thunderbird"] move container to workspace $workspace9
 for_window [class="Spotify"] move container to workspace $workspace10
 
-exec_always feh --bg-scale /home/theovasi/Pictures/wallpaper.jpg
-# exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec_always feh --bg-scale /home/tvasileiadis/Pictures/wallpaper.jpg
+#exec --no-startup-id compton --config ~/.compton.conf -b
 exec --no-startup-id brave
 exec --no-startup-id caffeine-indicator
-exec_always --no-startup-id "setxkbmap -model pc105 -layout us,gr -option grp:alt_shift_toggle"
+exec "xrdb .Xresources"
