@@ -31,7 +31,7 @@ floating_modifier $mod
 bindsym $mod+Shift+s exec sh ~/.scripts/i3lock.sh 
 
 # start a terminal
-bindsym $mod+Return exec "urxvt -e /bin/zsh" 
+bindsym $mod+Return exec "urxvt -e tmux" 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -193,7 +193,7 @@ bar {
 }
 
 # i3 gaps configuration
-gaps inner 3
+gaps inner 8
 gaps outer 0
 smart_gaps on
 
