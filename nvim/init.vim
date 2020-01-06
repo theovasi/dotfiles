@@ -25,6 +25,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'zchee/libclang-python3'
 
 " Lint
 Plug 'w0rp/ale'
@@ -54,8 +55,13 @@ let g:airline_theme='tomorrow'
 " Required:
 filetype indent plugin on
 set tabstop=4
-autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
+set softtabstop=4
 set shiftwidth=4
+set noexpandtab
+set colorcolumn=120
+highlight ColorColumn ctermbg=darkgray
+
+autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
 set expandtab
 set noswapfile
 map <Tab> :tabn<CR>
@@ -65,7 +71,6 @@ map <Tab> :tabn<CR>
 set t_Co=256
 syntax on
 " colorscheme base16-default-dark
-color Tomorrow-Night-Eighties
 set number
 set cursorline
 
@@ -132,3 +137,10 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+if exists('$TMUX')
+" Colors in tmux
+let &t_8f = "<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "<Esc>[48;2;%lu;%lu;%lum"
+endif
+set termguicolors
+set background=dark
