@@ -31,7 +31,7 @@ floating_modifier $mod
 bindsym $mod+Shift+s exec sh ~/.scripts/i3lock.sh 
 
 # start a terminal
-bindsym $mod+Return exec "alacritty -e tmux" 
+bindsym $mod+Return exec "alacritty" 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -180,11 +180,11 @@ new_window pixel 0
 bar {
         position top
 	font pango: System San Fransisco Display 9
-        status_command i3status
+        status_command i3blocks 
         # tray_output primary
         colors {
           background $bg-color
-          separator #f99157
+          separator #50fa7b
           #                  border             background         text
           focused_workspace  $bg-color          $bg-color          $text-color
           inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
@@ -193,19 +193,10 @@ bar {
 }
 
 # i3 gaps configuration
-#gaps inner 8
-#gaps outer 0
-#smart_gaps on
+gaps inner 5
+gaps outer 0
+smart_gaps on
 
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym Ctrl+Shift+1 exec --no-startup-id setxkbmap us -variant colemak
-bindsym Ctrl+Shift+2 exec --no-startup-id setxkbmap gr
-
-bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
 bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
 bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
@@ -219,7 +210,7 @@ for_window [class="Brave"] move container to workspace $workspace1
 for_window [class="Thunderbird"] move container to workspace $workspace9
 for_window [class="Spotify"] move container to workspace $workspace10
 
-exec_always feh --bg-scale /home/tvasileiadis/Pictures/wallpaper.jpg
+exec_always feh --bg-scale /home/theovasi/Pictures/wallpaper.jpg
 exec_always --no-startup-id compton
 exec --no-startup-id brave
 exec --no-startup-id caffeine-indicator
