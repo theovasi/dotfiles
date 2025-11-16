@@ -1,2 +1,2 @@
 # dotfiles
-My i3 setup.
+My configs. Always a work in progress.
